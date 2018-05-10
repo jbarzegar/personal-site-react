@@ -23,7 +23,13 @@ export default class IndexPage extends React.Component {
               >
                 <div className="tile is-vertical is-2 image is-64x64">
                   <figure className="image">
-                    <img src={post.frontmatter.image} alt="Image" />
+                    <img
+                      src={
+                        post.frontmatter.image ||
+                        "https://source.unsplash.com/256x256"
+                      }
+                      alt="Image"
+                    />
                   </figure>
                 </div>
                 {/* // "/img/coffee-gear.png */}
