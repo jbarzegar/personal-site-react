@@ -21,38 +21,54 @@ export default class IndexPage extends React.Component {
                 style={{ border: "1px solid #eaecee", padding: "1em" }}
                 key={post.id}
               >
-                <div className="tile is-vertical is-2 image is-64x64">
-                  <figure className="image">
-                    <img
-                      src={
-                        post.frontmatter.image ||
-                        "https://source.unsplash.com/256x256"
-                      }
-                      alt="Image"
-                    />
-                  </figure>
-                </div>
-                {/* // "/img/coffee-gear.png */}
-                {console.log(post.frontmatter)}
-                <p className="container is-fluid">
-                  <Link className="has-text-primary" to={post.fields.slug}>
-                    {post.frontmatter.title}
-                  </Link>
+                <div className="columns">
+                  <div className="tile is-vertical column is-3 imag">
+                    <figure className="image">
+                      <img
+                        src={
+                          post.frontmatter.image ||
+                          "https://source.unsplash.com/256x256"
+                        }
+                        alt="Image"
+                      />
+                    </figure>
+                  </div>
+                  {/* // "/img/coffee-gear.png */}
+                  {console.log(post.frontmatter)}
+                  <div className="column is-2">
+                    <h1 style={{ marginBottom: "0px" }}>
+                      <Link
+                        className="has-text-primary column is-11"
+                        to={post.fields.slug}
+                      >
+                        {post.frontmatter.title}
+                      </Link>
+                    </h1>
 
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p className="container is-fluid">
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link
-                    className="button is-small "
-                    style={{ marginBottom: "1em" }}
-                    to={post.fields.slug}
-                  >
-                    Keep Reading →
-                  </Link>
-                </p>
+                    <small className="column">{post.frontmatter.date}</small>
+                    <small className="column is-italic">
+                      {post.frontmatter.tags.reduce((acc, tag, index, arr) => {
+                        if (index < arr.length - 1) {
+                          return acc.concat(tag + " • ");
+                        } else {
+                          return acc.concat(tag);
+                        }
+                      }, "")}
+                    </small>
+                  </div>
+                  <p className="column ">
+                    {post.excerpt}
+                    <br />
+                    <br />
+                    <Link
+                      className="button is-small "
+                      style={{ marginBottom: "1em" }}
+                      to={post.fields.slug}
+                    >
+                      Keep Reading →
+                    </Link>
+                  </p>
+                </div>
               </div>
             ))}
         </div>
@@ -80,6 +96,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            tags
             image
             title
             templateKey
