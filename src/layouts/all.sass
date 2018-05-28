@@ -1,11 +1,18 @@
 @import "~bulma/sass/utilities/initial-variables"
 
+$body-background-color: #1e1e1e;
+$body-color: white;
+$info: $grey-darker;
+
 // Config vars
 $kaldi-red: #FD461E
 $kaldi-red-invert: #fff
+//$link: 
 
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
+$primary: white;
+$text: white;
+$text-strong: white;
+//$primary-invert: $kaldi-red-invert
 
 .content .taglist
   list-style: none
@@ -23,6 +30,13 @@ $primary-invert: $kaldi-red-invert
     margin-top: 0
 
 
+.reduced-max-width
+  max-width: 75%
+
+
+// .navbar
+//   background-color: $grey-dark !importa
+
 // Helper Classes
 .full-width-image-container
   width: 100vw
@@ -37,7 +51,15 @@ $primary-invert: $kaldi-red-invert
   justify-content: center
   align-items: center
 
+.container-colored
+  background-color: $grey-darker
+
 .margin-top-0
   margin-top: 0 !important
 
+.strike-through
+  text-decoration: line-through
+
 @import "~bulma"
+@import "wave"
+@import "animation"

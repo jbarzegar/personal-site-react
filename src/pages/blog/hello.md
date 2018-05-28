@@ -14,6 +14,6 @@ tags:
 
 ## My first post!
 
-Hey. This is the first post to what might be a series of assorted thoughts, frustrations, and otherwise lukewarm musings about God knows what. Maybe I might look back at the following posts and go, "huh, I had a lot to learn!"
+Hey. This is the first post to what might be a series of assorted thoughts, frustrations, and otherwise lukewarm musings about god knows what. Maybe I might look back at the following posts and go, "huh, I had a lot to learn!"
 
 🍻
