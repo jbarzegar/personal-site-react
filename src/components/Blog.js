@@ -21,7 +21,7 @@ const Blog = props => {
                       post.frontmatter.image ||
                       "https://source.unsplash.com/256x256"
                     }
-                    alt="Image"
+                    alt="blog preview"
                   />
                 </figure>
               </div>

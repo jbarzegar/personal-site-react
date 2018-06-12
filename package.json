@@ -5,6 +5,7 @@
   "author": "Wahid Shafique",
   "dependencies": {
     "bulma": "^0.6.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "gatsby": "^1.9.261",
     "gatsby-link": "^1.6.37",
     "gatsby-plugin-netlify": "^1.0.19",

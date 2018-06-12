@@ -1,10 +1,10 @@
 import React from "react";
 import github from "../img/github-icon.svg";
 import PropTypes from "prop-types";
-import Link from "gatsby-link";
 import Blog from "../components/Blog";
+import Menu from "../components/Menu";
 
-//first two will be displayed, this list will cycle through
+// first two will be displayed, this list will cycle through
 const listedItems = [
   "a game programming graduate 🎮",
   "a web developer 🌐",
@@ -12,11 +12,9 @@ const listedItems = [
   "open to new opportunities 📋"
 ];
 
+//action link is the last item, and the one which is actionable, ie: leads user to somewhere etc.
 const actionLink = listedItems[3];
-
 const TRANSITION_TIMEOUT = 10;
-
-const dataHover = "open to new opportunities 📋";
 
 export default class IndexPage extends React.Component {
   constructor(props) {
@@ -26,7 +24,9 @@ export default class IndexPage extends React.Component {
       currentRoledexTuple: { first: listedItems[0], second: listedItems[1] },
       actionTuple: { first: actionLink, second: actionLink },
       tempTuple: null,
-      doneRotation: false
+      doneRotation: false,
+      // menu related items
+      activeMenuKey: null
     };
   }
 
@@ -64,9 +64,24 @@ export default class IndexPage extends React.Component {
     }
   }
 
+  setActiveMenuKey = key => {
+    console.log(key);
+    this.setState({
+      activeMenuKey: key
+    });
+  };
+
   render() {
     const { data } = this.props;
     const { edges: posts } = data.allMarkdownRemark;
+
+    const menuItems = {
+      blog: {
+        component: <Blog posts={posts} />,
+        href: "#blog",
+        text: "Blog"
+      }
+    };
 
     return (
       <div>
@@ -111,7 +126,7 @@ export default class IndexPage extends React.Component {
               {/* <i className="material-icons">code</i> */}
               {/* <div className="front">a lapsed English major</div>
               <div className="back">a game programming graduate</div>
-
+                    #region
               <h2 className="subtitle is-4 is-spaced tile is-vertical is-8">
                 I am
                 <span>a lapsed English major</span>
@@ -120,39 +135,31 @@ export default class IndexPage extends React.Component {
                 <span>transitioning to full stack</span>
                 <span>web developer</span>
               </h2> */}
-              <h2 className="subtitle is-4">from Toronto</h2>
+              <div
+                style={{
+                  display: "flex"
+                }}
+              >
+                <h2 className="subtitle is-4">from Toronto</h2>
+              </div>
 
               {/* <span className="icon is-large">
                 <img src={github} alt="Github" />
               </span> */}
             </div>
           </div>
-
-          <div className="hero-foot ">
-            <nav className="tabs is-boxed is-fullwidth">
-              <div className="container">
-                <ul>
-                  <li className="is-active">
-                    <a>Blog</a>
-                  </li>
-                  <li>
-                    <a>🚧</a>
-                  </li>
-                  <li>
-                    <a>🚧</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
+          <Menu
+            setActiveMenuKey={this.setActiveMenuKey}
+            menuItemsObject={menuItems}
+            currMenuKey={this.state.activeMenuKey}
+          />
         </section>
         <section className="section">
           <div className="container container-colored">
-            <div className="content">
-              {/* <h1 className="has-text-weight-bold is-size-2">Blog</h1> */}
-            </div>
-            <Blog posts={posts} />
-            {/* {console.log(posts)} */}
+            <div className="content" />
+            {/* <Blog posts={posts} /> */}
+            {menuItems[this.state.activeMenuKey] &&
+              menuItems[this.state.activeMenuKey].component}
           </div>
         </section>
       </div>

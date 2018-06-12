@@ -1,5 +1,5 @@
 a.flip-animate 
-  perspective: 1000px
+  //perspective: 1000px
   
   span 
     position: relative
@@ -8,8 +8,24 @@ a.flip-animate
     transition: transform 0.3s
     transform-origin: 50% 0
     transform-style: preserve-3d
+    height: 100%
+    width: 100%
+    @media only screen and (max-width : 1216px)
+      height: 100px
+      // display: block
+    @media only screen and (max-width : 768px)
+      width: 510px
+    @media only screen and (max-width : 450px)
+      line-height: 70px
+      width: 310px
+      height: 200px
   
+  span:after 
+    height: 500px
+
   span:before
+    word-break: normal
+    margin: auto
     display: flex
     position: absolute
     top: 100%
@@ -20,7 +36,7 @@ a.flip-animate
     transition: color 0.3s
     transform: rotateX(-90deg)
     transform-origin: 50% 0
-    text-align: center
+    text-align: left
   
   
   // &:hover span,
@@ -33,7 +49,8 @@ a.flip-animate
 //    &:focus span:before 
 //      color: rgb(210, 73, 54)
 
-.start-flip
+.start-flip   
+    height: 300px
     transition: all 0.3s
     animation: infinite-cycle 2s 2s forwards
   
@@ -46,4 +63,5 @@ a.flip-animate
 
   100% 
     transform: rotateX(90deg) translateY(-22px)
+   
   
