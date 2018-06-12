@@ -51,7 +51,19 @@ export const BlogPostTemplate = ({
                       </div>
                     </li>
                   ))}
+                  {/* <Link to="/" /> */}
                 </ul>
+                <a
+                  className="button is-info is-outlined is-inverted"
+                  onClick={() =>
+                    navigateTo({
+                      pathname: `/#blog`,
+                      state: { currentPostLink: "dsfdfs" }
+                    })
+                  }
+                >
+                  Return to blog
+                </a>
               </div>
             ) : null}
           </div>

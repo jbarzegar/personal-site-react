@@ -18,20 +18,34 @@ export default class IndexPage extends React.Component {
     return includesLink;
   };
 
+  componentDidMount() {
+    console.log("tes");
+    this.checkHash();
+  }
+
+  checkHash() {
+    const regex = /\#(.*)/;
+    const includesHash =
+      typeof window !== "undefined" ? window.location.href.match(regex) : null;
+    if (includesHash) {
+      this.props.setActiveMenuKey(includesHash[1]);
+    }
+  }
+
   componentWillReceiveProps(props, state, prevProps) {
-    console.log(props);
+    console.log("PROPS", props);
     const menuObj = props.menuItemsObject[props.currMenuKey];
-    console.log(menuObj);
-    if (menuObj && !this.isOnLink(menuObj.href)) {
-      console.log("ds");
-      this.props.setActiveMenuKey(null);
-    } else {
-      // const hash = window.location.href.substr(
-      //   window.location.href.lastIndexOf("#") + 1
-      // );
-      // if (hash) {
-      //   this.props.setActiveMenuKey(hash);
-      // }
+
+    if (!props.currMenuKey) {
+      this.checkHash();
+    }
+
+    if (menuObj) {
+      if (this.isOnLink(menuObj.href)) {
+        console.log(menuObj);
+      } else {
+        this.props.setActiveMenuKey(null);
+      }
     }
   }
 
@@ -51,7 +65,7 @@ export default class IndexPage extends React.Component {
   render() {
     return (
       <div>
-        <div className="hero-foot ">
+        <div className="hero-foot">
           <nav className="tabs is-boxed is-fullwidth">
             <div className="container">
               <ul>

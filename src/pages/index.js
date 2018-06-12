@@ -79,7 +79,8 @@ export default class IndexPage extends React.Component {
       blog: {
         component: <Blog posts={posts} />,
         href: "#blog",
-        text: "Blog"
+        text: "Blog",
+        keyName: "blog"
       }
     };
 
