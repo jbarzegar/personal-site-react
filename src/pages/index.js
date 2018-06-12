@@ -166,11 +166,7 @@ export default class IndexPage extends React.Component {
             <div className="content" />
             {/* <Blog posts={posts} /> */}
             {menuItems[this.state.activeMenuKey] &&
-            menuItems[this.state.activeMenuKey].component ? (
-              menuItems[this.state.activeMenuKey].component
-            ) : (
-              <img src="https://gph.is/2c2yjWy" />
-            )}
+            menuItems[this.state.activeMenuKey].component}
           </div>
         </section>
       </div>
