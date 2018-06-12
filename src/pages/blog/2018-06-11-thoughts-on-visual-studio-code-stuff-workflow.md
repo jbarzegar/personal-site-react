@@ -7,14 +7,13 @@ description: >-
   and the extensions + configuration options I use, along with other assorted
   stuff. 
 tags:
-  - Visual Studio Code
-  - Workflow
-  - Living
-previewImg: 'https://dashboard.snapcraft.io/site_media/appmedia/2017/04/code-256px.png'
+  - visual studio code
+  - workflow
+  - living
+image: 'http://ubuntuhandbook.org/wp-content/uploads/2017/05/vscode-icon245.png'
 ---
-I've hopelessly fallen in love with VSCode and have often tried to goad colleagues into switching over from tried and true editors such as Sublime or Atom.  
 
-
+I've hopelessly fallen in love with VSCode and have often tried to goad colleagues into switching over from tried and true editors such as Sublime or Atom.
 
 ## Some useful extensions
 
@@ -22,6 +21,6 @@ I've hopelessly fallen in love with VSCode and have often tried to goad colleagu
 
 This extension creates a history of all the things you've copied within the editor. Pressing
 
- `Ctrl + Shift + v`  
+`Ctrl + Shift + v`
 
 pops open a contextual menu where you can select past items (the default limit is **12**). This adds a little bit of play and reduces tedium when copying or refactoring things. I've found it especially useful when working with HTML. While following principles of DRY (Don't Repeat Yourself) should be a priority, I've found my self loading in some key HTML snippets (written by the designers at work) and pasting them across files. This no-frills tool has saved me some time, especially on legacy work.

@@ -9,7 +9,7 @@ const Blog = props => {
         .filter(post => post.node.frontmatter.templateKey === "blog-post")
         .map(({ node: post }) => (
           <div
-            className="level content"
+            className="level content container-colored"
             style={{ border: "1px solid #eaecee", padding: "1em" }}
             key={post.id}
           >
@@ -26,7 +26,7 @@ const Blog = props => {
                 </figure>
               </div>
               {/* {console.log(post.frontmatter)} */}
-              <div className="column is-2">
+              <div className="column is-3">
                 <h1 style={{ marginBottom: "0px" }}>
                   <Link
                     className="has-text-primary column is-11"

@@ -81,6 +81,12 @@ export default class IndexPage extends React.Component {
         href: "#blog",
         text: "Blog",
         keyName: "blog"
+      },
+      resume: {
+        // component: <Blog posts={posts} />,
+        href: "#resume",
+        text: "Resume",
+        keyName: "resume"
       }
     };
 
@@ -156,11 +162,15 @@ export default class IndexPage extends React.Component {
           />
         </section>
         <section className="section">
-          <div className="container container-colored">
+          <div className="container">
             <div className="content" />
             {/* <Blog posts={posts} /> */}
             {menuItems[this.state.activeMenuKey] &&
-              menuItems[this.state.activeMenuKey].component}
+            menuItems[this.state.activeMenuKey].component ? (
+              menuItems[this.state.activeMenuKey].component
+            ) : (
+              <img src="https://gph.is/2c2yjWy" />
+            )}
           </div>
         </section>
       </div>
