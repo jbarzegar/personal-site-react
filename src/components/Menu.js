@@ -12,7 +12,8 @@ export default class IndexPage extends React.Component {
   }
 
   isOnLink = link => {
-    const includesLink = window.location.href.includes(link);
+    const includesLink =
+      typeof window !== "undefined" && window.location.href.includes(link);
     console.log("running link", includesLink);
     return includesLink;
   };
