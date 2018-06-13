@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: Thoughts on Visual Studio Code Stuff + Workflow
+title: Visual Studio Code Stuff + Workflow
 date: '2018-06-11T23:11:14-04:00'
 description: >-
   A little living document for my experience with Visual Studio Code (VSCode),
