@@ -10,8 +10,9 @@ tags:
   - visual studio code
   - workflow
   - living
-image: 'http://ubuntuhandbook.org/wp-content/uploads/2017/05/vscode-icon245.png'
+image: /img/vscode-icon245.png
 ---
+![](/img/vscode-icon245.png)
 
 I've hopelessly fallen in love with VSCode and have often tried to goad colleagues into switching over from tried and true editors such as Sublime or Atom.
 
