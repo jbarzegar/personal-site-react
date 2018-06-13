@@ -12,21 +12,24 @@ export default class IndexPage extends React.Component {
   }
 
   isOnLink = link => {
+    console.log("CHECK LIN", this.props.location);
     const includesLink =
-      typeof window !== "undefined" && window.location.href.includes(link);
-    console.log("running link", includesLink);
+      this.props.location.hash.includes(link) ||
+      this.props.location.pathname.includes(link);
     return includesLink;
   };
 
   componentDidMount() {
-    console.log("tes");
+    console.log("test ", this.props);
     this.checkHash();
   }
 
   checkHash() {
     const regex = /\#(.*)/;
     const includesHash =
-      typeof window !== "undefined" ? window.location.href.match(regex) : null;
+      this.props.location.hash.match(regex) ||
+      this.props.location.pathname.match(regex);
+    console.log(includesHash);
     if (includesHash) {
       this.props.setActiveMenuKey(includesHash[1]);
     }
@@ -42,11 +45,12 @@ export default class IndexPage extends React.Component {
 
     if (menuObj) {
       if (this.isOnLink(menuObj.href)) {
-        console.log(menuObj);
+        //  console.log(menuObj);
       } else {
         this.props.setActiveMenuKey(null);
       }
     }
+    console.log("tr");
   }
 
   // componentDidMount = () => {
@@ -71,7 +75,7 @@ export default class IndexPage extends React.Component {
               <ul>
                 {Object.keys(this.props.menuItemsObject).map(linkObjKeys => {
                   const linkObj = this.props.menuItemsObject[linkObjKeys];
-                  console.log(linkObj);
+                  console.log("LNIK OBJ", linkObj);
                   return (
                     <li
                       key={linkObjKeys}

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
 import Helmet from "react-helmet";
-import { Link, navigateTo } from "gatsby-link";
+import Link, { navigateTo } from "gatsby-link";
 import Content, { HTMLContent } from "../components/Content";
 
 export const BlogPostTemplate = ({
@@ -53,17 +53,22 @@ export const BlogPostTemplate = ({
                   ))}
                   {/* <Link to="/" /> */}
                 </ul>
-                <a
+                {/* <Link to={linkObj.href}>{linkObj.text}</Link> */}
+                <Link
                   className="button is-info is-outlined is-inverted"
-                  onClick={() =>
-                    navigateTo({
-                      pathname: `/#blog`,
-                      state: { currentPostLink: "dsfdfs" }
-                    })
-                  }
+                  // onClick={() =>
+                  //   navigateTo({
+                  //     pathname: `/#blog`,
+                  //     state: {
+                  //       currentPostLink: "dsfdfs",
+                  //       returningToBlog: true
+                  //     }
+                  //   })
+                  //}
+                  to="/#blog"
                 >
                   Return to blog
-                </a>
+                </Link>
               </div>
             ) : null}
           </div>

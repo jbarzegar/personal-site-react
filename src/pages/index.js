@@ -2,6 +2,7 @@ import React from "react";
 import github from "../img/github-icon.svg";
 import PropTypes from "prop-types";
 import Blog from "../components/Blog";
+import Resume from "../components/Resume";
 import Menu from "../components/Menu";
 
 // first two will be displayed, this list will cycle through
@@ -76,17 +77,17 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
 
     const menuItems = {
+      resume: {
+        component: <Resume />,
+        href: "#resume",
+        text: "Resume",
+        keyName: "resume"
+      },
       blog: {
         component: <Blog posts={posts} />,
         href: "#blog",
         text: "Blog",
         keyName: "blog"
-      },
-      resume: {
-        // component: <Blog posts={posts} />,
-        href: "#resume",
-        text: "Resume",
-        keyName: "resume"
       }
     };
 
@@ -156,6 +157,7 @@ export default class IndexPage extends React.Component {
             </div>
           </div>
           <Menu
+            location={this.props.location}
             setActiveMenuKey={this.setActiveMenuKey}
             menuItemsObject={menuItems}
             currMenuKey={this.state.activeMenuKey}
@@ -166,7 +168,7 @@ export default class IndexPage extends React.Component {
             <div className="content" />
             {/* <Blog posts={posts} /> */}
             {menuItems[this.state.activeMenuKey] &&
-            menuItems[this.state.activeMenuKey].component}
+              menuItems[this.state.activeMenuKey].component}
           </div>
         </section>
       </div>
