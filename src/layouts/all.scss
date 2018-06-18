@@ -1,0 +1,82 @@
+@import "~bulma/sass/utilities/initial-variables";
+@import "variables";
+
+$body-background-color: $theme-darker-grey;
+$body-color: white;
+$info: $grey-darker;
+
+$kaldi-red: #fd461e;
+$kaldi-red-invert: #fff;
+
+$primary: white;
+$text: white;
+$text-strong: white;
+
+.content .taglist {
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+
+  li {
+    padding: 0 2rem 1rem 0;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+  }
+}
+
+.reduced-max-width {
+  max-width: 75%;
+}
+
+.word-break {
+  word-break: break-word;
+}
+
+.title {
+  span {
+  }
+
+  justify-content: flex-start;
+}
+
+// .navbar
+//   background-color: $grey-dark !importa
+
+// Helper Classes
+.full-width-image-container {
+  width: 100vw;
+  height: 400px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: 5em -50vw;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-colored {
+  background-color: $grey-darker;
+}
+
+.margin-top-0 {
+  margin-top: 0 !important;
+}
+
+.strike-through {
+  text-decoration: line-through;
+}
+
+@import "~bulma";
+@import "home";
+@import "wave";
+@import "animation";
+@import "resume";

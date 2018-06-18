@@ -1,8 +1,9 @@
 import React from "react";
-import Link from "gatsby-link";
+import { navigateTo } from "gatsby-link";
 import PropTypes from "prop-types";
+import Scrollchor from "react-scrollchor";
 
-export default class IndexPage extends React.Component {
+export default class Menu extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,7 +13,7 @@ export default class IndexPage extends React.Component {
   }
 
   isOnLink = link => {
-    console.log("CHECK LIN", this.props.location);
+    // console.log("CHECK LIN", this.props.location);
     const includesLink =
       this.props.location.hash.includes(link) ||
       this.props.location.pathname.includes(link);
@@ -36,7 +37,7 @@ export default class IndexPage extends React.Component {
   }
 
   componentWillReceiveProps(props, state, prevProps) {
-    console.log("PROPS", props);
+    // console.log("PROPS", props);
     const menuObj = props.menuItemsObject[props.currMenuKey];
 
     if (!props.currMenuKey) {
@@ -75,14 +76,23 @@ export default class IndexPage extends React.Component {
               <ul>
                 {Object.keys(this.props.menuItemsObject).map(linkObjKeys => {
                   const linkObj = this.props.menuItemsObject[linkObjKeys];
-                  console.log("LNIK OBJ", linkObj);
+                  // console.log("LNIK OBJ", linkObj);
                   return (
                     <li
                       key={linkObjKeys}
                       className={this.isOnLink(linkObj.href) ? "is-active" : ""}
                       onClick={() => this.props.setActiveMenuKey(linkObjKeys)}
                     >
-                      <Link to={linkObj.href}>{linkObj.text}</Link>
+                      <Scrollchor
+                        beforeAnimate={() => {
+                          console.log("srt");
+                          navigateTo(linkObj.href);
+                        }}
+                        to={linkObj.keyName}
+                      >
+                        {linkObj.text}
+                        {/* <Link to={linkObj.href}>{linkObj.text}</Link> */}
+                      </Scrollchor>
                     </li>
                   );
                 })}

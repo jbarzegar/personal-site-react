@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import github from "../img/github-icon.svg";
 import PropTypes from "prop-types";
 import Blog from "../components/Blog";
 import Resume from "../components/Resume";
 import Menu from "../components/Menu";
+import Navbar from "../components/Navbar";
 
 // first two will be displayed, this list will cycle through
 const listedItems = [
@@ -93,7 +94,11 @@ export default class IndexPage extends React.Component {
 
     return (
       <div>
-        <section className="hero is-info is-large">
+        <section className="hero is-info is-large has-bg-img is-fullheight">
+          <div className="hero-head">
+            <Navbar invertedLogo />
+          </div>
+
           <div className="hero-body">
             <div className="container">
               <h1 className="title is-spaced reduced-max-width">
@@ -111,38 +116,11 @@ export default class IndexPage extends React.Component {
                       this.state.shouldStartFlipping ? "start-flip" : ""
                     }
                     data-hover={this.state.currentRoledexTuple.second}
-                    // onMouseEnter={() => {
-                    //   console.log("enter");
-                    //   this.setState({
-                    //     tempTuple: { ...this.state.currentRoledexTuple },
-                    //     currentRoledexTuple: this.state.actionTuple,
-                    //     shouldStartFlipping: false
-                    //   });
-                    // }}
-                    // onMouseLeave={() => {
-                    //   this.setState({
-                    //     currentRoledexTuple: this.state.tempTuple,
-                    //     shouldStartFlipping: true
-                    //   });
-                    // }}
                   >
                     {this.state.currentRoledexTuple.first}
                   </span>
                 </a>
               </h1>
-
-              {/* <i className="material-icons">code</i> */}
-              {/* <div className="front">a lapsed English major</div>
-              <div className="back">a game programming graduate</div>
-                    #region
-              <h2 className="subtitle is-4 is-spaced tile is-vertical is-8">
-                I am
-                <span>a lapsed English major</span>
-                <span>a game programming graduate</span>
-                <span>a front end</span>
-                <span>transitioning to full stack</span>
-                <span>web developer</span>
-              </h2> */}
               <div
                 style={{
                   display: "flex"
@@ -163,14 +141,20 @@ export default class IndexPage extends React.Component {
             currMenuKey={this.state.activeMenuKey}
           />
         </section>
-        <section className="section">
-          <div className="container">
-            <div className="content" />
-            {/* <Blog posts={posts} /> */}
-            {menuItems[this.state.activeMenuKey] &&
-              menuItems[this.state.activeMenuKey].component}
-          </div>
-        </section>
+        {menuItems[this.state.activeMenuKey] && (
+          <section
+            className="section has-inverted-bg-img"
+            id={menuItems[this.state.activeMenuKey].href}
+          >
+            <div className="container">
+              <div
+                className="content"
+                id={menuItems[this.state.activeMenuKey].keyName}
+              />
+              {menuItems[this.state.activeMenuKey].component}
+            </div>
+          </section>
+        )}
       </div>
     );
   }

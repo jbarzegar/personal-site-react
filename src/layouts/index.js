@@ -3,15 +3,17 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 
 import Navbar from "../components/Navbar";
-import "./all.sass";
+import "./all.scss";
 
-const TemplateWrapper = ({ children }) => (
-  <div>
-    <Helmet title="Hi" />
-    <Navbar />
-    <div>{children()}</div>
-  </div>
-);
+const TemplateWrapper = ({ children }) => {
+  return (
+    <div>
+      <Helmet title="Hi" />
+      {/* <Navbar /> */}
+      <div>{children()}</div>
+    </div>
+  );
+};
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func
