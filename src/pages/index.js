@@ -5,6 +5,7 @@ import Blog from "../components/Blog";
 import Resume from "../components/Resume";
 import Menu from "../components/Menu";
 import Navbar from "../components/Navbar";
+import Image from "gatsby-image";
 
 // first two will be displayed, this list will cycle through
 const listedItems = [
@@ -95,6 +96,20 @@ export default class IndexPage extends React.Component {
     return (
       <div>
         <section className="hero is-info is-large has-bg-img is-fullheight">
+          <Image
+            sizes={this.props.data.headerImage.sizes}
+            style={{
+              position: "absolute",
+
+              left: 0,
+
+              top: 0,
+
+              width: "100%",
+
+              height: "100%"
+            }}
+          />
           <div className="hero-head">
             <Navbar invertedLogo />
           </div>
@@ -170,6 +185,11 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
+    headerImage: imageSharp(id: { regex: "/header/" }) {
+      sizes(maxWidth: 1567) {
+        ...GatsbyImageSharpSizes
+      }
+    }
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
