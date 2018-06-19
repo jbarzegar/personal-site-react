@@ -187,7 +187,7 @@ export const pageQuery = graphql`
   query IndexQuery {
     headerImage: imageSharp(id: { regex: "/header/" }) {
       sizes(maxWidth: 9856) {
-        ...GatsbyImageSharpSizes_tracedSVG
+        ...GatsbyImageSharpSizes
       }
     }
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
