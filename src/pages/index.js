@@ -95,7 +95,7 @@ export default class IndexPage extends React.Component {
 
     return (
       <div>
-        <section className="hero is-info is-large has-bg-img is-fullheight">
+        <section className="hero is-info is-fullheight">
           <Image
             sizes={this.props.data.headerImage.sizes}
             style={{
