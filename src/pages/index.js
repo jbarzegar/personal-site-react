@@ -186,8 +186,8 @@ IndexPage.propTypes = {
 export const pageQuery = graphql`
   query IndexQuery {
     headerImage: imageSharp(id: { regex: "/header/" }) {
-      sizes(maxWidth: 1567) {
-        ...GatsbyImageSharpSizes
+      sizes(maxWidth: 9856) {
+        ...GatsbyImageSharpSizes_tracedSVG
       }
     }
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
