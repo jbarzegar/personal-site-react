@@ -143,6 +143,26 @@ export default class IndexPage extends React.Component {
               >
                 <h2 className="subtitle is-4">from Toronto</h2>
               </div>
+              <div className="icon-row">
+                <a
+                  href="https://github.com/wahidshafique"
+                  className="fa fa-github-square fa-4x"
+                >
+                  <span className="sr-only">Github</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/wahid-shafique-971ab279"
+                  className="fa fa-linkedin-square fa-4x"
+                >
+                  <span className="sr-only">Linkedin</span>
+                </a>
+                <a
+                  href="mailto:me@wahid.co"
+                  className="fa fa-envelope-square fa-4x"
+                >
+                  <span className="sr-only">Email</span>
+                </a>
+              </div>
 
               {/* <span className="icon is-large">
                 <img src={github} alt="Github" />

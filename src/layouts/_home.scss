@@ -15,3 +15,15 @@
 .background-gradient {
   background: linear-gradient(black, transparent) !important;
 }
+
+.icon-row {
+  a {
+    padding: 0.5em 0.3em 0 0em;
+
+    &:hover {
+      cursor: pointer;
+      //transition: all 0.1s;
+      transform: scale(1.1);
+    }
+  }
+}
