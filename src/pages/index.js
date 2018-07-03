@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import github from "../img/github-icon.svg";
+import "font-awesome/css/font-awesome.min.css";
 import PropTypes from "prop-types";
 import Blog from "../components/Blog";
 import Resume from "../components/Resume";
