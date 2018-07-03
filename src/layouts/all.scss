@@ -1,6 +1,10 @@
 @import "~bulma/sass/utilities/initial-variables";
 @import "variables";
 
+body {
+  background-color: black;
+}
+
 $body-background-color: $theme-darker-grey;
 $body-color: white;
 $info: $grey-darker;

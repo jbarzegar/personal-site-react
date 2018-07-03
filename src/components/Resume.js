@@ -48,7 +48,7 @@ const Resume = props => {
               </li>
             </ul>
           </nav>
-          <section className="col-md-3 card-wrapper profile-card-wrapper affix">
+          <section className="col-xs-12 col-md-3 card-wrapper profile-card-wrapper affix">
             <div className="card profile-card">
               <span className="profile-pic-container">
                 <div className="profile-pic">
@@ -127,7 +127,6 @@ const Resume = props => {
                 <div className="detail" id="about">
                   <div className="icon">
                     <i className="fa fa-lg fa-user" />
-                    <span className="mobile-title">About</span>
                   </div>
                   <div className="info">
                     <h4 className="title text-uppercase">About</h4>
@@ -141,7 +140,7 @@ const Resume = props => {
                 <div className="detail" id="work-experience">
                   <div className="icon">
                     <i className="fa fa-lg fa-building" />
-                    <span className="mobile-title">Work Experience</span>
+                    {/* <span className="mobile-title">Work Experience</span> */}
                   </div>
                   <div className="info">
                     <h4 className="title text-uppercase">Work Experience</h4>
@@ -204,7 +203,7 @@ const Resume = props => {
                           </p>
                           <p>
                             <i className="fa fa-clock-o icon-left" />
-                            8 months
+                            {props.curWork()} months
                           </p>
                         </div>
                       </li>
@@ -319,7 +318,7 @@ const Resume = props => {
                 <div className="detail" id="education">
                   <div className="icon">
                     <i className="fa fa-lg fa-mortar-board" />
-                    <span className="mobile-title">Education</span>
+                    {/* <span className="mobile-title">Education</span> */}
                   </div>
                   <div className="info">
                     <h4 className="title text-uppercase">Education</h4>
@@ -396,7 +395,7 @@ const Resume = props => {
                 <div className="detail" id="awards">
                   <div className="icon">
                     <i className="fa fa-lg fa-trophy" />
-                    <span className="mobile-title">Awards</span>
+                    {/* <span className="mobile-title">Awards</span> */}
                   </div>
                   <div className="info">
                     <h4 className="title text-uppercase">Awards</h4>
@@ -472,7 +471,7 @@ const Resume = props => {
                 <div className="detail" id="volunteer-work">
                   <div className="icon">
                     <i className="fa fa-lg fa-child" />
-                    <span className="mobile-title">Volunteer Work</span>
+                    {/* <span className="mobile-title">Volunteer Work</span> */}
                   </div>
                   <div className="info">
                     <h4 className="title text-uppercase">Volunteer Work</h4>
@@ -519,7 +518,7 @@ const Resume = props => {
                 <div className="detail" id="interests">
                   <div className="icon">
                     <i className="fa fa-lg fa-heart" />
-                    <span className="mobile-title">Interests</span>
+                    {/* <span className="mobile-title">Interests</span> */}
                   </div>
                   <div className="info">
                     <h4 className="title text-uppercase">Interests</h4>

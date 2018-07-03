@@ -7,6 +7,21 @@ import Menu from "../components/Menu";
 import Navbar from "../components/Navbar";
 import Image from "gatsby-image";
 
+Date.dateDiff = function(datepart, fromdate, todate) {
+  datepart = datepart.toLowerCase();
+  var diff = todate - fromdate;
+  var divideBy = {
+    m: 2.628e9,
+    w: 604800000,
+    d: 86400000,
+    h: 3600000,
+    n: 60000,
+    s: 1000
+  };
+
+  return Math.floor(diff / divideBy[datepart]);
+};
+
 // first two will be displayed, this list will cycle through
 const listedItems = [
   "a game programming graduate 🎮",
@@ -80,7 +95,16 @@ export default class IndexPage extends React.Component {
 
     const menuItems = {
       resume: {
-        component: <Resume />,
+        component: (
+          <Resume
+            curWork={() => {
+              var start = new Date("8/1/2017");
+              var today = new Date();
+              const diff = Date.dateDiff("m", start, today);
+              return diff;
+            }}
+          />
+        ),
         href: "#resume",
         text: "Resume",
         keyName: "resume"
@@ -178,7 +202,7 @@ export default class IndexPage extends React.Component {
         </section>
         {menuItems[this.state.activeMenuKey] && (
           <section
-            className="section has-inverted-bg-img"
+            className="has-inverted-bg-img"
             id={menuItems[this.state.activeMenuKey].href}
           >
             <div className="container">
