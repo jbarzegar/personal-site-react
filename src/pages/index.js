@@ -6,6 +6,7 @@ import Resume from "../components/Resume";
 import Menu from "../components/Menu";
 import Navbar from "../components/Navbar";
 import Image from "gatsby-image";
+import { navigateTo } from "gatsby-link";
 
 Date.dateDiff = function(datepart, fromdate, todate) {
   datepart = datepart.toLowerCase();
@@ -147,6 +148,9 @@ export default class IndexPage extends React.Component {
                 >
                   I am &nbsp;
                   <span
+                    onClick={() => {
+                      navigateTo("#resume");
+                    }}
                     onAnimationEnd={() => {
                       console.log("done anim");
                       this.shiftCurrTupleForward();
